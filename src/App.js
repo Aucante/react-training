@@ -1,6 +1,7 @@
 
 import {useState} from 'react'
 import './App.css';
+import Item from './Item'
 
 function App() {
 
@@ -14,6 +15,10 @@ function App() {
     <div className="App">
       <h1>Hello state : {monState}</h1>
       <button onClick={modifyState}>Change state </button>
+
+      <Item txt={"txt"} />
+      <Item txt={"txt2"} />
+      <Item number={monState} />
     </div>
   );
 }

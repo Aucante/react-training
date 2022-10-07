@@ -1,9 +1,8 @@
-function Item (){
-    return(
-        <div>
-            <h1>Hello world depuis item</h1>
-        </div>
-    )
+function Item (props){
+
+    console.log(props);
+    return <h1>{props.txt}{props.number}</h1>
+        
 }
 
 export default Item;
