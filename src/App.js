@@ -11,9 +11,16 @@ function App() {
     setToggle(!toggle)
   }
 
+  
+  
+
   return (
     <div className="App">
-      <h1>Hello state depuis App</h1>
+      {toggle ?
+      <h1>State true</h1>
+      :
+      <h1>State false</h1>
+      }
       <button onClick={changeState}>Change state</button>
     </div>
   );
