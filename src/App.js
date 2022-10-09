@@ -5,18 +5,16 @@ import Item from './Components/Item/Item';
 
 function App() {
 
-  const [inputData, setInputData] = useState(10);
+  const [toggle, setToggle] = useState(true);
 
-  const changeInput = (e) => {
-    setInputData(e)
+  const changeState = () => {
+    setToggle(!toggle)
   }
-
-  console.log(inputData);
 
   return (
     <div className="App">
       <h1>Hello state depuis App</h1>
-      <input type="text" value={inputData} onInput={e => changeInput(e.target.value)} />
+      <button onClick={changeState}>Change state</button>
     </div>
   );
 }
