@@ -4,7 +4,9 @@ import Item from './Item'
 export default function Form(){
 
     const [dataArr, setDataArr] = useState([
-        {txt: "Promener le chien"}
+        {txt: "Promener le chien"},
+        {txt: "Coder"},
+        {txt: "Faire les courses"},
     ])
 
     return (
@@ -16,9 +18,14 @@ export default function Form(){
             </form>
             <h2>Liste des chose à faire</h2>
             <ul className="list-group">
-                <Item />
-                <Item />
-                <Item />
+                {dataArr.map((item, index) => {
+                    return (
+                        <Item 
+                        txt={item.txt}
+                        key={index}
+                        />
+                    )
+                })}
             </ul>
         </div>
     )
