@@ -9,6 +9,7 @@ export default function Form(){
         {txt: "Coder", id: uuidv4()},
         {txt: "Faire les courses", id: uuidv4()},
     ])
+    const [statetInput, setStateInput] = useState();
 
     const deleteElement = id => {
         const filteredState = dataArr.filter(item => {
@@ -17,12 +18,37 @@ export default function Form(){
         setDataArr(filteredState)
     }
 
+    const linkedInput = e => {
+        setStateInput(e);
+    }
+
+    const addTodo = e => {
+        e.preventDefault();
+        const newArr = [...dataArr]
+
+        const newTodo = {};
+        newTodo.txt = statetInput;
+        newTodo.id = uuidv4();
+
+        newArr.push(newTodo);
+        setDataArr(newArr);
+        setStateInput('');
+    }
+
     return (
         <div className="m-auto px-4 col-12 col-sm-10 col-lg-6">
-            <form className='mb-3'>
+            <form onSubmit={e => addTodo(e)} className='mb-3'>
             <label htmlFor='todo' className='form-label mt-3'>Chose à faire</label>
-            <input type="text" className="form-control" id='todo'/>
-            <button className="mt-2 btn btn-primary d-block">Envoyer</button>
+            <input 
+            value={statetInput}
+            onInput={e => linkedInput(e.target.value)}
+            type="text" 
+            className="form-control" 
+            id='todo'
+            />
+            <button 
+            className="mt-2 btn btn-primary d-block"
+            >Envoyer</button>
             </form>
             <h2>Liste des chose à faire</h2>
             <ul className="list-group">
